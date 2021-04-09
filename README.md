@@ -13,3 +13,6 @@ https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/windows-service?vie
 
 # Serialization
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/
+
+# Debugging gRPC 
+https://medium.com/@EdgePress/how-to-interact-with-and-debug-a-grpc-server-c4bc30ddeb0b
