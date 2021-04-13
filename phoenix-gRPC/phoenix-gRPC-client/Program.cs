@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Grpc.Net.Client;
 
 /*
  * https://docs.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.0&tabs=visual-studio
@@ -11,13 +14,26 @@
  * Install-Package Grpc.Tools
  */
 
-namespace phoenix_gRPC_client
+namespace phoenix_gRPC
 {
     class Program
     {
-        static void Main(string[] args)
+        public static async Task HelloWorld()
         {
             Console.WriteLine("Hello World!");
+            // The port number(5001) must match the port of the gRPC server.
+            using var channel = GrpcChannel.ForAddress("https://localhost:49158");
+            var client = new Greeter.GreeterClient(channel);
+            var reply = await client.SayHelloAsync(
+                              new HelloRequest { Name = "GreeterClient" });
+            Console.WriteLine("Greeting: " + reply.Message);
+
+        }
+        static void Main(string[] args)
+        {
+            HelloWorld().Wait();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
