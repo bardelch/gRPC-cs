@@ -31,7 +31,9 @@ namespace phoenix_gRPC
         }
         static void Main(string[] args)
         {
-            Task.Delay(100000);
+            Console.WriteLine("Press any key to start!!!!");
+            Console.ReadKey();
+
             HelloWorld().Wait();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
