@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option csharp_namespace = "phoenix_gRPC";
+
+package phoenix;
+
+service phoenixService {
+	rpc PLC_Request(PLC_message) returns (phoenix_STATUS);
+}
+
+message PLC_message{
+	message PLC_command {
+		bool LOAD 	= 1;
+		bool START 	= 2;
+		bool END 	= 3;
+		bool ABORT 	= 4;
+		bool RESET 	= 5;
+	}
+	
+	message META_PROGRAM {
+		message Part {
+			uint32 PART_TYPE			= 1;
+			enum PART_PROGRAM {
+				COVER_FACE	= 0; //1
+				FRONT_FACE	= 1; //2
+				INTAKE_FACE	= 2; //3
+				DECK_FACE	= 3; //4
+				EXAUST_FACE	= 4; //5
+				REAR_FACE	= 5; //6
+			}
+			PART_PROGRAM PROGRAM_ID		= 2; //VERITY OFF BY ONE ERROR!!!
+			string PUN					= 3;
+			string GM_PART_NUMBER		= 4;
+			string MODULE				= 5;
+			string PLANT_CODE			= 6;
+		}
+		
+		message TimeStamp {
+			string YEAR		= 1;
+			string MONTH	= 2;
+			string DAY		= 3;
+			string MINUTE	= 4;
+			string SECOND	= 5;
+		}
+		
+		message QC_OP {
+			string OP_110_CNC		= 1 ;
+			string OP_120_CNC		= 2 ;
+			string OP_130_CNC		= 3 ;
+			string OP_140_CNC		= 4 ;
+			string OP_310_DECK_CNC	= 5 ;
+			string OP_320_CNC		= 6 ;
+			string OP_330_CNC		= 7 ;
+			//350?
+			string OP_340_CNC		= 8 ;
+			string OP_360_CNC		= 9 ;
+			string OP_370_CNC		= 10;
+			string OP_380_CNC		= 11;
+			string OP_390_CNC		= 12;
+			string SCOUT_PART		= 13;
+		}
+	}
+}
+
+message phoenix_STATUS {
+	bool READY		= 1;
+	bool BUSY		= 2;
+	bool DONE		= 3;
+	bool PASS		= 4;
+	bool FAIL		= 5;
+	bool FAULTED	= 6;
+}
+
+message phoenix_RESULTS {
+	string results	= 1;
+}
