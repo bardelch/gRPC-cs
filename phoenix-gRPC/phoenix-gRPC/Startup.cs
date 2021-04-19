@@ -32,6 +32,7 @@ namespace phoenix_gRPC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<PLC_phoenixService_ELWEMA>();
 
                 endpoints.MapGet("/", async context =>
                 {

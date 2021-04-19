@@ -4,7 +4,7 @@ option csharp_namespace = "phoenix_gRPC";
 
 package phoenix;
 
-service phoenixService {
+service PhoenixService {
 	rpc PLC_Request(PLC_message_ELWEMA) returns (phoenix_STATUS);
 }
 

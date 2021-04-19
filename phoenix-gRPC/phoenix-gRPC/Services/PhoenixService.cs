@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace phoenix_gRPC
 {
-    public class PLC_phoenixService : phoenixService.phoenixServiceBase
+    public class PLC_phoenixService_ELWEMA : PhoenixService.PhoenixServiceBase
     {
         /*
          * message phoenix_STATUS {
