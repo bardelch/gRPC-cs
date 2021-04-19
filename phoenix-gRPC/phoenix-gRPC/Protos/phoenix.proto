@@ -17,46 +17,46 @@ message PLC_command {
 }
 
 enum PART_PROGRAM {
-	COVER_FACE	= 0; //1
-	FRONT_FACE	= 1; //2
-	INTAKE_FACE	= 2; //3
-	DECK_FACE	= 3; //4
-	EXAUST_FACE	= 4; //5
-	REAR_FACE	= 5; //6
+	CoverFace	= 0; //1
+	FrontFace	= 1; //2
+	IntakeFace	= 2; //3
+	DeckFace	= 3; //4
+	ExaustFace	= 4; //5
+	RearFace	= 5; //6
 }
 
 message Part {
-	uint32 PART_TYPE			= 1;
-	PART_PROGRAM PROGRAM_ID		= 2; //VERITY OFF BY ONE ERROR!!!
-	string PUN					= 3;
-	string GM_PART_NUMBER		= 4;
-	string MODULE				= 5;
-	string PLANT_CODE			= 6;
+	uint32 PartType				= 1;
+	PART_PROGRAM ProgramID		= 2; //VERITY OFF BY ONE ERROR!!!
+	string Pun					= 3;
+	string GMPartNumber			= 4;
+	string Module				= 5;
+	string PlantCode			= 6;
 }
 
 message TimeStamp {
-	string YEAR		= 1;
-	string MONTH	= 2;
-	string DAY		= 3;
-	string MINUTE	= 4;
-	string SECOND	= 5;
+	string Year		= 1;
+	string Month	= 2;
+	string Day		= 3;
+	string Minute	= 4;
+	string Second	= 5;
 }
 
 message QC_OP_ELWEMA {
-	string OP_110_CNC		= 1 ;
-	string OP_120_CNC		= 2 ;
-	string OP_130_CNC		= 3 ;
-	string OP_140_CNC		= 4 ;
-	string OP_310_DECK_CNC	= 5 ;
-	string OP_320_CNC		= 6 ;
-	string OP_330_CNC		= 7 ;
+	string OP110CNC		= 1 ;
+	string OP120CNC		= 2 ;
+	string OP130CNC		= 3 ;
+	string OP140CNC		= 4 ;
+	string OP310DECKCNC	= 5 ;
+	string OP320CNC		= 6 ;
+	string OP330CNC		= 7 ;
 	//350?
-	string OP_340_CNC		= 8 ;
-	string OP_360_CNC		= 9 ;
-	string OP_370_CNC		= 10;
-	string OP_380_CNC		= 11;
-	string OP_390_CNC		= 12;
-	string SCOUT_PART		= 13;
+	string OP340CNC		= 8 ;
+	string OP360CNC		= 9 ;
+	string OP370CNC		= 10;
+	string OP380CNC		= 11;
+	string OP390CNC		= 12;
+	string ScoutPart		= 13;
 }
 
 message META_PROGRAM_ELWEMA {
