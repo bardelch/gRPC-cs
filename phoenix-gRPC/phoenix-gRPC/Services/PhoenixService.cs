@@ -19,7 +19,7 @@ namespace phoenix_gRPC
          * bool FAULTED	= 6;
          * }
         */
-        public override global::System.Threading.Tasks.Task<global::phoenix_gRPC.phoenix_STATUS> PLC_Request(global::phoenix_gRPC.PLC_message request, ServerCallContext context)
+        public override global::System.Threading.Tasks.Task<global::phoenix_gRPC.phoenix_STATUS> PLC_Request(global::phoenix_gRPC.PLC_message_ELWEMA request, ServerCallContext context)
         {
             return Task.FromResult(new phoenix_STATUS
             {
